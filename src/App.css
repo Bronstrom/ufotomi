@@ -1,0 +1,37 @@
+.App {
+  margin: 1em;
+}
+
+h2 {
+  text-align: center;
+}
+
+.photos {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2em;
+  
+  margin: 2.5em;
+}
+
+.photo-cell {
+  width: 25%;
+  border: 0.15em solid #bbbbbb;
+  padding: 1.5em;
+  border-radius: 2em;
+  font-size: 0.75em;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.date {
+  color: #999999;
+}
+
+.photo {
+  width: 100%;
+}
