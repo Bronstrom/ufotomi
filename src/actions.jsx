@@ -57,7 +57,7 @@ export function fetchTag(tag) {
 
 // Thunk creator for saving a photo - needs successful fetch to send photo up to PATCH
 export function savePhotoEdit(photo) {
-    return dispath => {
+    return dispatch => {
         const options = {
             method: 'PATCH',
             headers: {
@@ -70,7 +70,7 @@ export function savePhotoEdit(photo) {
             .then(response => response.json())
             .then(data => {
                 if (data.ok) {
-                    dispatch(replacePhoto({...photo, isEditing: false}));
+                    dispatch(replacePhoto({...photo, is_editing: false}));
                 } else {
                     console.error(data);
                 }

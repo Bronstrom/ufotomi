@@ -108,7 +108,7 @@ function reducer(state, action) {
             return {
                 ...state,
                 // Filter through filters to find
-                photos: state.photos.filter(photos => photo.id !== action.payload),
+                photos: state.photos.filter(photo => photo.id !== action.payload),
             };
         default:
             return state;
