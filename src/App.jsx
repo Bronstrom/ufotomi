@@ -1,24 +1,30 @@
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { Photo } from './Photo';
-import { fetchDate } from './actions';
+
+import { fetchMonth, fetchTag } from './actions';
 import { useEffect } from 'react';
+
+import { Photo } from './Photo';
+import { Toolbar } from './Toolbar';
+
 
 function App() {
   const photos = useSelector(state => state.photos);
+  //let tag = "Other";
+  //const toolbarhandler = data => tag = data.tag;
 
   // TODO: Widen the scope
-  /*
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  useEffect((tag) => {
     const today = new Date();
-    dispatch(fetchDate(today.getMonth() + 1, today.getDate(), today.getFullYear()));
+    dispatch(fetchMonth(today.getMonth(), today.getFullYear()));
+    //dispatch(fetchTag(tag));
   }, [dispatch]);
-  */
 
   return (
     <div className="App">
+      <Toolbar /*onchange={toolbarhandler}*/ />
       <h2>Ufotomi</h2>
       <div className="photos">
         {photos.map(photo => 

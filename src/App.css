@@ -6,6 +6,34 @@ h2 {
   text-align: center;
 }
 
+
+
+/* Toolbar Elements */
+
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: start;
+  margin-bottom: 10em;
+}
+
+.month-chooser {
+  justify-self: center;
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+
+.tag-chooser {
+  justify-self: center;
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+
+
+
+/* Body Elements */
 .photos {
   display: inline-flex;
   flex-direction: row;
