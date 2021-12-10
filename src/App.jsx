@@ -7,13 +7,12 @@ import { useEffect } from 'react';
 import { Photo } from './Photo';
 import { Toolbar } from './Toolbar';
 
-
 function App() {
   const photos = useSelector(state => state.photos);
+  // TODO: Add tag searching option - Seperate into different component
   //let tag = "Other";
   //const toolbarhandler = data => tag = data.tag;
 
-  // TODO: Widen the scope
   const dispatch = useDispatch();
 
   useEffect((tag) => {

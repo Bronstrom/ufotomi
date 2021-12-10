@@ -61,7 +61,7 @@ export function savePhotoEdit(photo) {
         const options = {
             method: 'PATCH',
             headers: {
-                'Content=Type': 'application/json',
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(photo),
         };
@@ -88,7 +88,7 @@ export function newPhoto(year, month, day) {
         "imgName": "",
         "imgLink": "",
         "imgDesc": "",
-        "Tag": "Other",
+        "tag": "Other",
     };
 
     return dispatch => {
@@ -171,4 +171,4 @@ export function removePhoto(id) {
 
 
 
-// TODO: "AddPhoto" display error if time allows - I told myself "later"
+// TODO: "AddPhoto" display error
