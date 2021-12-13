@@ -1,11 +1,16 @@
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+
 import { useSelector, useDispatch } from 'react-redux';
 
-import { fetchMonth, fetchTag } from './actions';
+import { fetchMonth } from './actions';
 import { useEffect } from 'react';
 
-import { Photo } from './Photo';
-import { Toolbar } from './Toolbar';
+import { Navbar } from './Navbar';
+import { Home } from './Home';
+import { SearchMonth } from './SearchMonth';
+import { SearchTag } from './SearchTag';
+import { SharePhoto } from './SharePhoto';
 
 function App() {
   // Initialize & declare app states
@@ -18,20 +23,20 @@ function App() {
   useEffect(() => {
     const today = new Date();
     dispatch(fetchMonth(today.getMonth(), today.getFullYear()));
-    dispatch(fetchTag());
   }, [dispatch]);
 
 
     return (
       <div className="App">
-        <Toolbar/>
-        <h2>Ufotomi</h2>
-        <div className="photos">
-          {isLoading && <div className="spinner" />}
-          {photos.map(photo => 
-            <Photo key={photo.id} photo={photo} />
-          )}
-        </div>
+        
+        <Navbar/>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/month" element={<SearchMonth/>} />
+          <Route path="/tag" element={<SearchTag/>} />
+          <Route path="/share" element={<SharePhoto/>} />
+        </Routes>
+        
       </div>
     );
   }

@@ -2,19 +2,32 @@
   margin: 1em;
 }
 
-h2 {
+h2, h3 {
   text-align: center;
 }
 
+.centering {
+  text-align: center;
+}
+
+.padding {
+  padding: 2.5em;
+}
 
 
-/* Toolbar Elements */
+/* Navbar Elements */
 
-.toolbar {
+.navbar {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  justify-items: start;
-  margin-bottom: 10em;
+  justify-items: center;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.navpages {
+  display: flex;
+  gap: 2em;
 }
 
 .month-chooser {
@@ -29,6 +42,15 @@ h2 {
   display: flex;
   flex-direction: row;
   gap: 3px;
+}
+
+/* Searchbar Elements */
+
+.searchbar {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+  margin-bottom: 2.5em;
 }
 
 
@@ -53,6 +75,7 @@ h2 {
 /* Body Elements */
 .photos {
   display: inline-flex;
+  justify-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 2em;
