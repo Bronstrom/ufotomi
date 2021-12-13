@@ -1,4 +1,11 @@
-# Getting Started with Create React App
+# uFOTOmi
+
+## Introduction
+
+**Ufotomi** is an application providing users with an experience where they can share, view and rate other users photos with an intuitive UI gallery system. Some basic features of creating include adding, editting, and deleting a photo. Photos can be viewed based on a search by month & year of the photo or by searching for an identifying tag.
+
+See [ufotomi-web-service](https://github.com/Bronstrom/ufotomi-web-service) for the underlaying
+MySQL schema, endpoints, and Express service setup for the web service side of the project.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

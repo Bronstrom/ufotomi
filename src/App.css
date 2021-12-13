@@ -33,6 +33,23 @@ h2 {
 
 
 
+/* Loading Elements */
+
+.spinner {
+    border: 25px solid #196ad4; /* Light grey */
+    border-top: 25px solid #85c4ee; /* Blue */
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    animation: spin 1.25s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
 /* Body Elements */
 .photos {
   display: inline-flex;

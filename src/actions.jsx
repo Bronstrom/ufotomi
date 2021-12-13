@@ -10,12 +10,14 @@ function assertResponse(response) {
 // Thunk creator function which takes month and day URL components as parameters
 export function fetchMonth(month, year) {
     return dispatch => {
+        dispatch(showLoading());
         fetch(`https://bradfell.me:8443/photos/${month}/${year}`)
             .then(assertResponse)
             .then(response => response.json())
             .then(data => {
                 if (data.ok) {
                     dispatch(showPhotos(data.results));
+                    dispatch(hideLoading());
                 } else {
                     console.error(data);
                 }
@@ -23,15 +25,19 @@ export function fetchMonth(month, year) {
     };
 }
 
+
+// TODO: Decide if this function is needed
 // Thunk creator function which takes month and day URL components as parameters
 export function fetchDay(month, day, year) {
     return dispatch => {
+        dispatch(showLoading());
         fetch(`https://bradfell.me:8443/photos/${month}/${day}/${year}`)
             .then(assertResponse)
             .then(response => response.json())
             .then(data => {
                 if (data.ok) {
                     dispatch(showPhotos(data.results));
+                    dispatch(hideLoading());
                 } else {
                     console.error(data);
                 }
@@ -42,16 +48,38 @@ export function fetchDay(month, day, year) {
 // Thunk creator function which takes tag parameters
 export function fetchTag(tag) {
     return dispatch => {
-        fetch(`https://bradfell.me:8443/photos/${tag}`)
+        dispatch(showLoading());
+        fetch(`https://bradfell.me:8443/tag/${tag}`)
             .then(assertResponse)
             .then(response => response.json())
             .then(data => {
                 if (data.ok) {
                     dispatch(showPhotos(data.results));
+                    dispatch(hideLoading());
                 } else {
                     console.error(data);
                 }
             });
+    };
+}
+
+export function addRating(id, rating) {
+    return dispatch => {
+        const options = {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+        fetch (`https://bradfell.me:8443/${id}/${rating}`, options)
+            .then(assertResponse)
+            .then(response => response.json())
+            .then(data => {
+                if (!data.ok) {
+                    console.error(data);
+                }
+            }
+        );
     };
 }
 
@@ -145,6 +173,8 @@ export const Action = Object.freeze({
     ReplacePhoto: 'ReplacePhoto',
     AddPhoto: 'AddPhoto',
     RemovePhoto: 'RemovePhoto',
+    IsLoading: 'IsLoading',
+    StopLoading: 'StopLoading',
 });
 // Action creator - replace current photos with new fetched photos
 export function showPhotos(photos) {
@@ -167,6 +197,16 @@ export function addPhoto(photo) {
 // Remove action creator
 export function removePhoto(id) {
     return {type: Action.RemovePhoto, payload: id};
+}
+
+export function showLoading() {
+    console.log("isLoading");
+    return {type: Action.IsLoading, payload: true};
+}
+
+export function hideLoading() {
+    console.log("stopLoading");
+    return {type: Action.StopLoading, payload: false};
 }
 
 

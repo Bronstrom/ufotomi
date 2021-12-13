@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { beginPhotoEdit, endPhotoEdit, savePhotoEdit, deletePhoto } from './actions';
+import { beginPhotoEdit, endPhotoEdit, savePhotoEdit, deletePhoto, addRating } from './actions';
 import { useState } from 'react';
 
 export function Photo(props) {
@@ -9,11 +9,37 @@ export function Photo(props) {
     const [imgLink, setLink] = useState(photo.imgLink);
     const [imgName, setTitle] = useState(photo.imgName);
     const [imgDesc, setDescription] = useState(photo.imgDesc);
-    const [tag, setTag] = useState("Other");
+    const [tag, setTag] = useState(photo.tag);
+    const [amazing, setAmazing] = useState(photo.amazing);
+    const [nice, setNice] = useState(photo.nice);
+    const [meh, setMeh] = useState(photo.meh);
+    const [boo, setBoo] = useState(photo.boo);
+
+    function updateRating (rating) {
+        switch (rating) {
+            case "amazing":
+                dispatch(addRating(photo.id, "amazing"));
+                setAmazing(amazing + 1);
+                break;
+            case "nice":
+                dispatch(addRating(photo.id, "nice"));
+                setNice(nice + 1);
+                break;
+            case "boo":
+                dispatch(addRating(photo.id, "boo"));
+                setBoo(boo + 1);
+                break;
+            // In case of error, mehs have the lease outcome on affecting rating
+            default:
+                dispatch(addRating(photo.id, "meh"));
+                setMeh(meh + 1);
+                break;
+        }
+    }
 
     const dispatch = useDispatch();
-
-    // TODO: Add other fields for a photo
+    
+    
 
     if (photo.is_editing) {
         const today = new Date();
@@ -101,8 +127,20 @@ export function Photo(props) {
                         <span className="imgDesc">{photo.imgDesc}</span>
                     </div>
                     <div>
-                        <span className="date">{photo.month}/{photo.day}/{photo.year}</span>
+                        <span className="date">{photo.month + 1}/{photo.day}/{photo.year}</span>
                     </div>
+                    <button
+                        onClick={() => updateRating("amazing")}
+                    >Amazing: {amazing}</button>
+                    <button
+                        onClick={() => updateRating("nice")}
+                    >Nice: {nice}</button>
+                    <button
+                        onClick={() => updateRating("meh")}
+                    >Meh: {meh}</button>
+                    <button
+                        onClick={() => updateRating("boo")}
+                    >Boo: {boo}</button>
                     <button
                         onClick={() => dispatch(beginPhotoEdit(photo.id))}
                     >Edit</button>

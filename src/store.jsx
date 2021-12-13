@@ -4,6 +4,7 @@ import { Action } from './actions';
 
 // Placeholder photos/media for testing purposes
 const initialState = {
+    isLoading: false,
     photos: [
         {
             "id": 1,
@@ -109,6 +110,12 @@ function reducer(state, action) {
                 ...state,
                 // Filter through filters to find
                 photos: state.photos.filter(photo => photo.id !== action.payload),
+            };
+        case Action.IsLoading:
+        case Action.StopLoading:
+            return {
+                ...state,
+                isLoading: action.payload,
             };
         default:
             return state;
