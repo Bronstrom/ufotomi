@@ -23,8 +23,8 @@ export function SharePhoto() {
     <div className="App">
       <h2>Share Photo</h2>
       <div className="centering">
-        <button onClick={() => dispatch(newPhoto(today.getFullYear(), today.getMonth(), today.getDate()))}
-        >New Photo</button>
+        <button className="add-photo-btn" onClick={() => dispatch(newPhoto(today.getFullYear(), today.getMonth(), today.getDate()))}
+        >+ New Photo</button>
       </div>
       <div className="photos">
         {isLoading && <div className="spinner" />}

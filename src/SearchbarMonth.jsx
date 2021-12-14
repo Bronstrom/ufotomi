@@ -40,7 +40,7 @@ export function SearchbarMonth() {
                 </input>
                 <button
                     onClick={() => dispatch(fetchMonth(month, year))}
-                >Search by Month</button>
+                >Search Month</button>
             </div>
         </div>
     );

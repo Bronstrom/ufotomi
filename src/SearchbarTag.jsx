@@ -10,7 +10,7 @@ export function SearchbarTag() {
 
     return (
         <div className="searchbar">
-            <div className="tag-chooser">
+            <div className="page-chooser centering">
                 <select
                     value={tag}
                     onChange={event => setTag(event.target.value)}
@@ -34,7 +34,7 @@ export function SearchbarTag() {
                 </select>
                 <button
                     onClick={() => dispatch(fetchTag(tag))}
-                >Search by Tag</button>
+                >Search Tag</button>
             </div>
         </div>
     );

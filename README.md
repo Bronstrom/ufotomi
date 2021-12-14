@@ -1,4 +1,4 @@
-# uFOTOmi
+# Ufotomi
 
 ## Introduction
 

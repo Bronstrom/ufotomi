@@ -97,7 +97,11 @@ export function savePhotoEdit(photo) {
             .then(response => response.json())
             .then(data => {
                 if (data.ok) {
-                    dispatch(replacePhoto({...photo, is_editing: false}));
+                    dispatch(replacePhoto({
+                        ...photo,
+                        is_editing: false,
+                        is_adding: false,
+                    }));
                 } else {
                     console.error(data);
                 }
@@ -135,6 +139,7 @@ export function newPhoto(year, month, day) {
                         ...photo,
                         id: data.results,
                         is_editing: true,
+                        is_adding: true,
                     }));
                 }
             }
@@ -159,8 +164,6 @@ export function deletePhoto(id) {
         );
     };
 }
-
-// TODO: Double check on whether to use SOFT or HARD delete here
 
 
 
@@ -199,15 +202,9 @@ export function removePhoto(id) {
 }
 
 export function showLoading() {
-    console.log("isLoading");
     return {type: Action.IsLoading, payload: true};
 }
 
 export function hideLoading() {
-    console.log("stopLoading");
     return {type: Action.StopLoading, payload: false};
 }
-
-
-
-// TODO: "AddPhoto" display error

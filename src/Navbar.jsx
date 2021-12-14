@@ -8,7 +8,7 @@ export function Navbar() {
         <div className="navbar">
             <div className="logo">
                 <NavLink to={"/"}>
-                    <h2>Ufotomi</h2>
+                    <img src="/img/Ufotomi_app_logo.png" id="logo" alt="Ufotomi logo"></img>
                 </NavLink>
             </div>
             <div className="navpages">

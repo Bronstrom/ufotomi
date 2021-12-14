@@ -81,7 +81,7 @@ function reducer(state, action) {
                 ...state,
                 photos: state.photos.map(photo => {
                     if (photo.id === action.payload) {
-                        return {...photo, is_editing: false};
+                        return {...photo, is_editing: false, is_adding: false};
                     } else {
                         return photo;
                     }
@@ -103,7 +103,9 @@ function reducer(state, action) {
                 ...state,
                 // Build new array of photos, starting with new photo and previous photos 
                 // behind it (new photos appear first)
-                photos: [action.payload, ...state.photos]
+                photos: [action.payload, ...state.photos.map(photo => {
+                    return {...photo, is_adding: true};
+                })]
             };
         case Action.RemovePhoto:
             return {

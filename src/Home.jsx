@@ -21,10 +21,15 @@ export function Home() {
 
   return (
     <div className="App">
-      <h2>Ufotomi</h2>
-      <p className="centering">A photography application allowing for sharing and rating photos with an intuitive gallery.</p>
+      <div className="txt-img-container">
+        <img className="photo-backdrop" src="img/camera-backdrop.jpg" alt="Photo backdrop" />
+        <div className="center-overlay">
+          <h1>Ufotomi</h1>
+          <h4>A photo platform for sharing and rating photos with an intuitive gallery.</h4>
+        </div>
+      </div>
       <div className="padding" />
-      <h3>Featured Photos</h3>
+      <h3>Featured Fotos</h3>
       <div className="photos">
         {isLoading && <div className="spinner" />}
         {photos.slice(0, 10).map(photo => 

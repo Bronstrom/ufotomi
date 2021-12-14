@@ -6,11 +6,11 @@
 
 .App {
   padding: 1em;
-  background-color:rgb(240, 240, 240)
 }
 
 body {
   font-family: Verdana, Arial, Helvetica, sans-serif;
+  background-color:rgb(240, 240, 240);
 }
 
 h2, h3 {
@@ -35,29 +35,30 @@ h2, h3 {
   font-style: italic;
 }
 
+.icon {
+  height: 2em;
+}
+
 button {
   border-radius: 2.5em;
-  border-color: lightseagreen;
+  border-color: #999999;
+  border-style: solid;
   padding: 0.5em;
   margin: 0.25em;
+  transition: all 0.35s;
 }
 
 button:hover {
-  border-radius: 2.5em;
-  border-color: rgb(64, 64, 206);
-  background-color: rgb(104, 104, 187);
-  color: white;
-  padding: 0.5em;
-  margin: 0.25em;
+  border-color: rgba(83, 200, 233, 1);
+  background-color: rgba(83, 200, 233, 1);
+  color: rgb(240, 240, 240);
 }
 
 button:active {
   border-radius: 2.5em;
-  border-color: rgb(104, 104, 214);
-  background-color: rgb(183, 183, 238);
-  color: white;
-  padding: 0.5em;
-  margin: 0.25em;
+  border-color: rgb(155, 233, 255);
+  background-color: rgb(155, 233, 255);
+  color: rgb(240, 240, 240);
 }
 
 
@@ -65,17 +66,43 @@ button:active {
 /* Navbar Elements */
 
 .navbar {
+  background-color: #999999;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
+  align-items: center;
   padding-bottom: 2.5em;
   padding-top: 1.5em;
+  color: rgb(240, 240, 240);
+}
+
+.navbar a {
+  color: rgb(240, 240, 240);
+  text-decoration: none;
+  transition: all 0.25s;
+}
+
+.navbar a:hover {
+  color: rgba(83, 200, 233, 1);
+}
+
+.navbar a:active {
+  color: rgb(155, 233, 255);
 }
 
 .navpages {
   display: flex;
-  gap: 2em;
+  gap: 5em;
 }
+
+#logo {
+  height: 6.5em;
+}
+
+.add-photo-btn {
+  transform: translate(0em, 15em);
+}
+
 
 
 /* Searchbar Elements */
@@ -99,8 +126,8 @@ button:active {
 /* Loading Elements */
 
 .spinner {
-    border: 25px solid #196ad4; /* Light grey */
-    border-top: 25px solid #85c4ee; /* Blue */
+    border: 25px solid rgb(41, 77, 194);
+    border-top: 25px solid rgba(83, 200, 233, 1);
     border-radius: 50%;
     width: 150px;
     height: 150px;
@@ -115,27 +142,24 @@ button:active {
 
 
 /* Body Elements */
+
 .photos {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  row-gap: 1em;
-  -webkit-column-gap:   1em;
-  -moz-column-gap:      1em;
-  column-gap:           1em;  
-  
-  margin: 2.5%;
+  width: 95%;
+  display: inline-block;
+  columns: 3;
+  column-gap: 3em;
+  margin: 0 auto;
 }
 
 .photo-cell {
-  width: 27.5%;
+  width: 100%;
+  margin: 0 3em 3em 0;
+  display: inline-block;
   padding: 1em;
+  border: 0.15em solid #999999;
   border-radius: 2em;
-  border: 0.15em solid #bbbbbb;
-  display: flex;
-  flex-direction: column;
-  justify-items: space-between;
   font-size: 0.75em;
+  overflow: hidden;  
 }
 
 .title {
@@ -149,4 +173,46 @@ button:active {
 
 .photo {
   width: 100%;
+}
+
+.txt-img-container {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  height: 25em;
+  color: white;
+  text-shadow: 2px 2px 3px #000000;
+}
+
+.photo-backdrop {
+  object-fit: scale-down;
+  width: 125em;
+  filter: opacity(60%);
+}
+
+.center-overlay {
+  position: absolute;
+  height: 2em;
+  
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -175%);
+}
+
+
+
+/* Screen adjustments */
+
+@media screen and (max-width: 800px) {
+  .photos {
+    width: 90%;
+    columns: 2;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .photos {
+    width: 85%;
+    columns: 1;
+  }
 }
