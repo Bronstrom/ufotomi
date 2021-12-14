@@ -238,5 +238,3 @@ export function Photo(props) {
         );
     }
 }
-
-// TODO: Make Tag into a Component to be used here and App.js?
