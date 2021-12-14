@@ -12,7 +12,7 @@ export function SearchbarMonth() {
 
     return (
         <div className="searchbar">
-            <div className="month-chooser">
+            <div className="page-chooser">
                 <select 
                     value={month}
                     onChange={event => setMonth(parseInt(event.target.value))}

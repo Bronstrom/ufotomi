@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { fetchMonth } from './actions';
+import { fetchAll } from './actions';
 import { useEffect } from 'react';
 
 import { Photo } from './Photo';
@@ -15,19 +15,19 @@ export function Home() {
   // After render apply thunk function: getMonth (retrieve photo for month & year)
   useEffect(() => {
     const today = new Date();
-    dispatch(fetchMonth(today.getMonth(), today.getFullYear()));
+    dispatch(fetchAll());
   }, [dispatch]);
 
 
   return (
     <div className="App">
       <h2>Ufotomi</h2>
-      <p className="centering">A photo application allowing for sharing and rating photos with an intuitive gallery.</p>
+      <p className="centering">A photography application allowing for sharing and rating photos with an intuitive gallery.</p>
       <div className="padding" />
-      <h3>Featured New Photos</h3>
+      <h3>Featured Photos</h3>
       <div className="photos">
         {isLoading && <div className="spinner" />}
-        {photos.slice(0, 6).map(photo => 
+        {photos.slice(0, 10).map(photo => 
           <Photo key={photo.id} photo={photo} />
         )}
       </div>

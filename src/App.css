@@ -1,5 +1,16 @@
+/* App.css */
+
+
+
+/* General changes */
+
 .App {
-  margin: 1em;
+  padding: 1em;
+  background-color:rgb(240, 240, 240)
+}
+
+body {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 h2, h3 {
@@ -10,9 +21,45 @@ h2, h3 {
   text-align: center;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .padding {
   padding: 2.5em;
 }
+
+.error-msg {
+  color: rgba(236, 64, 58, 0.767);
+  font-weight: bold;
+  font-style: italic;
+}
+
+button {
+  border-radius: 2.5em;
+  border-color: lightseagreen;
+  padding: 0.5em;
+  margin: 0.25em;
+}
+
+button:hover {
+  border-radius: 2.5em;
+  border-color: rgb(64, 64, 206);
+  background-color: rgb(104, 104, 187);
+  color: white;
+  padding: 0.5em;
+  margin: 0.25em;
+}
+
+button:active {
+  border-radius: 2.5em;
+  border-color: rgb(104, 104, 214);
+  background-color: rgb(183, 183, 238);
+  color: white;
+  padding: 0.5em;
+  margin: 0.25em;
+}
+
 
 
 /* Navbar Elements */
@@ -21,8 +68,8 @@ h2, h3 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
-  margin-bottom: 2.5em;
-  margin-top: 1.5em;
+  padding-bottom: 2.5em;
+  padding-top: 1.5em;
 }
 
 .navpages {
@@ -30,19 +77,6 @@ h2, h3 {
   gap: 2em;
 }
 
-.month-chooser {
-  justify-self: center;
-  display: flex;
-  flex-direction: row;
-  gap: 3px;
-}
-
-.tag-chooser {
-  justify-self: center;
-  display: flex;
-  flex-direction: row;
-  gap: 3px;
-}
 
 /* Searchbar Elements */
 
@@ -50,7 +84,14 @@ h2, h3 {
   display: grid;
   grid-template-columns: 1fr;
   justify-items: start;
-  margin-bottom: 2.5em;
+  padding-bottom: 2.5em;
+}
+
+.page-chooser {
+  justify-self: center;
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
 }
 
 
@@ -72,22 +113,28 @@ h2, h3 {
 }
 
 
+
 /* Body Elements */
 .photos {
-  display: inline-flex;
-  justify-items: center;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 2em;
+  row-gap: 1em;
+  -webkit-column-gap:   1em;
+  -moz-column-gap:      1em;
+  column-gap:           1em;  
   
-  margin: 2.5em;
+  margin: 2.5%;
 }
 
 .photo-cell {
-  width: 25%;
-  border: 0.15em solid #bbbbbb;
-  padding: 1.5em;
+  width: 27.5%;
+  padding: 1em;
   border-radius: 2em;
+  border: 0.15em solid #bbbbbb;
+  display: flex;
+  flex-direction: column;
+  justify-items: space-between;
   font-size: 0.75em;
 }
 

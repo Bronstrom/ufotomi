@@ -20,11 +20,11 @@ export function SharePhoto() {
   }, [dispatch]);
 
   return (
-    <div className="App, centering">
+    <div className="App">
       <h2>Share Photo</h2>
-      <div className="searchbar">
-          <button onClick={() => dispatch(newPhoto(today.getFullYear(), today.getMonth(), today.getDate()))}
-          >New Photo</button>
+      <div className="centering">
+        <button onClick={() => dispatch(newPhoto(today.getFullYear(), today.getMonth(), today.getDate()))}
+        >New Photo</button>
       </div>
       <div className="photos">
         {isLoading && <div className="spinner" />}

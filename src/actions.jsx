@@ -26,12 +26,11 @@ export function fetchMonth(month, year) {
 }
 
 
-// TODO: Decide if this function is needed
 // Thunk creator function which takes month and day URL components as parameters
-export function fetchDay(month, day, year) {
+export function fetchAll() {
     return dispatch => {
         dispatch(showLoading());
-        fetch(`https://bradfell.me:8443/photos/${month}/${day}/${year}`)
+        fetch(`https://bradfell.me:8443/photos/`)
             .then(assertResponse)
             .then(response => response.json())
             .then(data => {
